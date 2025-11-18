@@ -1,0 +1,102 @@
+﻿@model ministry_altars.Entities.pastor_dto
+
+@{
+    ViewBag.Title = "Create Pastor";
+}
+
+<h2 class="page-title">Create Pastor</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Ensure all required fields are filled.</legend>
+
+        <div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @required = "required", @class = "form-control", @placeholder = "Name", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @required = "required", @class = "form-control", @placeholder = "Email", @type = "email" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.phone_no, htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.phone_no, new { htmlAttributes = new { @required = "required", @class = "form-control", @placeholder = "Phone No", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.phone_no, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.id_no, htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.id_no, new { htmlAttributes = new { @required = "required", @class = "form-control", @placeholder = "Id No", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.id_no, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.year, htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.year, new SelectList(Model.years, "Value", "Text"), new { @class = "form-control", @id = "cboyears" })
+                @Html.ValidationMessageFor(model => model.year, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.month, htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.month, new SelectList(Model.months, "Value", "Text"), new { @class = "form-control", @id = "cbomonths" })
+                @Html.ValidationMessageFor(model => model.month, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.day, htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.day, new SelectList(Model.days, "Value", "Text"), new { @class = "form-control", @id = "cbodays" })
+                @Html.ValidationMessageFor(model => model.day, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.type, htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.type, new SelectList(Model.types, "Value", "Text"), new { @class = "form-control", @id = "cbotypes" })
+                @Html.ValidationMessageFor(model => model.type, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.altar_id, htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.altar_id, new SelectList(Model.altars, "Value", "Text"), new { @class = "form-control", @id = "cboaltars" })
+                @Html.ValidationMessageFor(model => model.altar_id, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.gender, new SelectList(Model.genders, "Value", "Text"), new { @class = "form-control", @id = "cbogender" })
+                @Html.ValidationMessageFor(model => model.gender, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group div_btn">
+            <input type="submit" value="Create" class="btn btn-success btn_class" />
+            @Html.ActionLink("Pastors", "Index", "Pastors", null, new { @class = "btn btn-primary btn_class", id = "btn_lst" })
+        </div>
+
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#name").focus();
+
+
+        });
+
+    </script>
+}

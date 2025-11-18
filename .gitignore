@@ -1,31 +1,45 @@
-# Built things
-_Debug/
-Compiled/
+build/bin
+build/debug
+Business/ministry_altars.Business/obj
+Business/ministry_altars.Business/bin
+Business/ministry_altars.Workflows/obj
+Business/ministry_altars.Workflows/bin 
+Business/ministry_altars.Workflows.Activities/obj
+Business/ministry_altars.Workflows.Activities/bin
+Business/ministry_altars.Workflows.Designers/obj
+Business/ministry_altars.Workflows.Designers/bin
+Data/ministry_altars.Data/bin
+Data/ministry_altars.Data/obj
+Hosts/build/bin
+Hosts/ministry_altars.Hosts.Web/bin
+Hosts/ministry_altars.Hosts.Web/obj
+Presentation/ministry_altars.UI.Process/bin
+Presentation/ministry_altars.UI.Process/obj
+Presentation/ministry_altars.UI.Web/bin
+Presentation/ministry_altars.UI.Web/obj
+Services/ministry_altars.Services/obj
+Services/ministry_altars.Services/bin
+Services/ministry_altars.Services.Contracts/obj
+Services/ministry_altars.Services.Contracts/bin
+Shared/ministry_altars.Entities/obj
+Shared/ministry_altars.Entities/obj
+Shared/ministry_altars.Framework/obj
+Shared/ministry_altars.Framework/obj
+SMOScripting/bin
+SMOScripting/obj
+Tests/ministry_altars.Test/obj
+Tests/ministry_altars.Test/bin
 
-# AudioCache can be rebuilt from sources
-AudioCache/
 
-# Lockfile
-_OpenInEditor.lock
 
-# User settings
-Game.agf.user
-*.crm.user
 
-# Backups
-Game.agf.bak
-backup_acsprset.spr
 
-# Memory dumps
-*.dmp
-
-# Temporary files
-# temporarily created during sprite or room background compression
-~aclzw.tmp
-# temporary, main game data, before getting packed into exe
-game28.dta
-# temporary build of the game before being moved to Compiled/ folder
+*.pbd
 *.exe
+*.msi
+*.temp
+*.cache
 
-# Log files
-warnings.log
+
+*log.txt
+*log.log

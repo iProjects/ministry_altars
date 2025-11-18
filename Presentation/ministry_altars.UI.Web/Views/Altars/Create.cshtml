@@ -1,0 +1,72 @@
+﻿@model ministry_altars.Entities.altar_dto
+
+@{
+    ViewBag.Title = "Create Altar";
+}
+
+<h2 class="page-title">Create Altar</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Ensure all required fields are filled.</legend>
+
+        <div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @required = "required", @class = "form-control", @placeholder = "Name", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.address, htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @required = "required", @class = "form-control", @placeholder = "Address", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.address, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.type, htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.type, new SelectList(Model.types, "Value", "Text"), new { @class = "form-control", @id = "cbotypes" })
+                @Html.ValidationMessageFor(model => model.type, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.country, htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.country, new SelectList(Model.countries, "Value", "Text"), new { @class = "form-control", @id = "cbotypes" })
+                @Html.ValidationMessageFor(model => model.country, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.county, htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.county, new SelectList(Model.counties, "Value", "Text"), new { @class = "form-control", @id = "cbotypes" })
+                @Html.ValidationMessageFor(model => model.county, "", new { @class = "lbl_error text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group div_btn">
+            <input type="submit" value="Create" class="btn btn-success btn_class" />
+            @Html.ActionLink("Altars", "Index", "Altars", null, new { @class = "btn btn-primary btn_class", id = "btn_lst" })
+        </div>
+
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#name").focus();
+
+
+        });
+
+    </script>
+}
